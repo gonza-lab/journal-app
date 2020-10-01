@@ -1,26 +1,25 @@
 import React from 'react';
+import { Input } from './Input';
+import img from '../../assets/google-button.png';
 
 export const LoginScreen = () => {
   return (
     <>
-      <h3>Login</h3>
+      <span className="auth__title">LOGIN</span>
       <form>
         <div className="auth__input-group">
-          <input
-            autoComplete="off"
-            type="text"
-            placeholder="Email"
-            name="email"
-          />
-          <input
-            autoComplete="off"
-            type="password"
-            placeholder="Password"
-            name="password"
-          />
+          <Input text="Email" i="lock" type="text" />
+          <Input text="Password" i="at" type="password" />
         </div>
-        <button type="submit">Login</button>
+        <button type="submit">LOGIN</button>
       </form>
+      <div className="auth__other">
+        <span>Or login with</span>
+        <button>
+          <img alt="" src={img} />
+          Google
+        </button>
+      </div>
     </>
   );
 };

@@ -1,9 +1,11 @@
-*, *::after, **::before{
+*,
+*::after,
+*::before {
   box-sizing: border-box;
 }
 
 * {
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: 'Roboto', sans-serif;
   margin: 0px;
 }
 
@@ -32,5 +34,3 @@ body {
 .pointer {
   cursor: pointer;
 }
-
-
