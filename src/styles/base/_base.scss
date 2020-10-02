@@ -34,3 +34,19 @@ body {
 .pointer {
   cursor: pointer;
 }
+
+.btn {
+  color: inherit;
+  border: none;
+  padding: 10px;
+  font-size: inherit;
+  outline: none;
+  border-radius: 20px;
+  font-weight: inherit;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  i {
+    margin-left: 10px;
+  }
+}
