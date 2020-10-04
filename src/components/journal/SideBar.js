@@ -7,15 +7,15 @@ export const SideBar = () => {
       <div className="journal__sidebar-navbar">
         <span>
           Hello, gonzalo!
-          <i class="far fa-hand-paper"></i>
+          <i className="far fa-hand-paper"></i>
         </span>
         <button>
           Logout
-          <i class="fas fa-sign-out-alt"></i>
+          <i className="fas fa-sign-out-alt"></i>
         </button>
       </div>
       <div className="journal__new-entry">
-        <i class="fas fa-feather-alt"></i>
+        <i className="fas fa-feather-alt"></i>
         <p>Create new entry</p>
       </div>
 

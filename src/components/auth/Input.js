@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-export const Input = ({ text, i, type }) => {
-  const [value, setValue] = useState('');
-
-  const handleChange = ({ target }) => {
-    setValue(target.value);
-  };
-
+export const Input = ({
+  text,
+  i,
+  type,
+  handleInputChange,
+  value,
+  name = '',
+}) => {
   return (
     <label className="auth__input-item">
       {text}:
@@ -15,9 +16,9 @@ export const Input = ({ text, i, type }) => {
           className={value && 'auth__isWrited'}
           autoComplete="off"
           type={type}
-          name={text.toLowerCase()}
+          name={name || text.toLowerCase()}
           value={value}
-          onChange={handleChange}
+          onChange={(e) => handleInputChange(e)}
         />
         <i className={`fas fa-${i}`}></i>
       </div>

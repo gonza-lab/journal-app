@@ -40,6 +40,11 @@
       &:hover {
         background-color: darken($blue, 5%);
       }
+
+      &:disabled {
+        background-color: transparentize($color: $blue, $amount: 0.5);
+        cursor: progress;
+      }
     }
   }
 }
@@ -147,4 +152,14 @@
     font-weight: 500;
     color: gray;
   }
+}
+
+.auth__error {
+  width: 200px;
+  padding: 0.6em;
+  border-radius: 5px;
+  color: white;
+  text-align: center;
+  border: 2px solid transparentize($color: $red, $amount: 0.5);
+  background-color: transparentize($color: $red, $amount: 0.5);
 }
