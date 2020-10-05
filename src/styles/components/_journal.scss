@@ -152,7 +152,7 @@
 
   color: white;
 
-  i{
+  i {
     font-size: 10rem;
     margin-bottom: 10px;
   }
@@ -163,4 +163,13 @@
     width: 400px;
     text-align: center;
   }
+}
+
+.journal__loader {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
 }
