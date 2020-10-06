@@ -32,13 +32,41 @@ export const startSaveNote = ({ title, body, date, url }) => {
   return async (dispatch, getState) => {
     const { uid } = getState().auth;
     const { active } = getState().notes;
-
     await db
       .doc(`${uid}/journal/notes/${active.id}`)
-      .set({ title, body, date });
+      .set({ title, body, date, url });
 
     dispatch(refreshNote(active.id, { title, body, date, url, id: active.id }));
     Swal.fire('Saved', title, 'success');
+  };
+};
+
+export const startUploadingImg = (file) => {
+  return async (dispatch, getState) => {
+    const { active } = getState().notes;
+
+    const fileUrl = await fileUpload(file);
+
+    dispatch(activeNote(active.id, { ...active, url: fileUrl }));
+    dispatch(startSaveNote({ ...active, url: fileUrl }));
+  };
+};
+
+export const startDeleteNote = () => {
+  return async (dispatch, getState) => {
+    const { notes, auth } = getState();
+
+    try {
+      await db.doc(`${auth.uid}/journal/notes/${notes.active.id}`).delete();
+      Swal.fire('Deleted', '', 'success');
+      dispatch(deleteNote(notes.active.id, notes.active));
+    } catch (err) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: err.message,
+      });
+    }
   };
 };
 
@@ -63,12 +91,14 @@ export const activeNote = (id, note) => ({
   },
 });
 
-export const startUploadingImg = ( file ) => {
-  return async (dispatch, getState) => {
-    const {active: activeNote} = getState().notes;
+export const deleteNote = (nid, note) => ({
+  type: types.notesDelete,
+  payload: {
+    nid,
+    note,
+  },
+});
 
-    const fileUrl = await fileUpload(file);
-
-    console.log(fileUrl);
-  }
-}
+export const logoutCleaning = () => ({
+  type: types.notesLogoutCleaning,
+});

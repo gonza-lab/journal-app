@@ -4,6 +4,7 @@ import { activeNote } from '../../actions/notes';
 import { useForm } from '../../hooks/useForm';
 import { NoteAppBar } from './NoteAppBar';
 import { NoteContent } from './NoteContent';
+import { NoteDelete } from './NoteDelete';
 
 export const NoteScreen = () => {
   const { active: note } = useSelector((state) => state.notes);
@@ -28,6 +29,7 @@ export const NoteScreen = () => {
     <div className="note__main-content">
       <NoteAppBar />
       <NoteContent values={values} handleInputChange={handleInputChange} />
+      <NoteDelete />
     </div>
   );
 };

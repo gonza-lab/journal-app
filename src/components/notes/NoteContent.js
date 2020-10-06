@@ -22,10 +22,7 @@ export const NoteContent = ({ values, handleInputChange }) => {
       ></textarea>
 
       <div className="note__image">
-        <img
-          src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg"
-          alt="imagen"
-        />
+        <img src={values.url} alt="imagen" />
       </div>
     </div>
   );

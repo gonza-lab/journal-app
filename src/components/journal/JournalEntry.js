@@ -13,10 +13,7 @@ export const JournalEntry = ({ title, body, url, date, id }) => {
 
   return (
     <div className="journal__entry" onClick={handleActive}>
-      <img
-        alt=""
-        src="https://images.unsplash.com/photo-1584047633756-f22887bb6100?ixlib=rb-1.2.1&auto=format&fit=crop&w=1267&q=80"
-      />
+      <img alt="" src={url} />
       <span className="journal__info">
         <h1>{title}</h1>
         <p>{body}</p>

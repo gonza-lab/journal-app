@@ -70,3 +70,17 @@
     height: 100%;
   }
 }
+
+.note__btn-delete {
+  background-color: $red;
+  border: none;
+  padding: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  color: white;
+
+  &:hover {
+    background-color: darken($color: $red, $amount: 5);
+  }
+}

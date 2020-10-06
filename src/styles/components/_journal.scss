@@ -110,16 +110,16 @@
   font-size: 13px;
   cursor: pointer;
   img {
+    flex-shrink: 0;
     border-radius: 16px 0 0 16px;
     height: 100%;
     width: 80px;
     object-fit: cover;
   }
-
-
 }
 
 .journal__info {
+  width: 100%;
   padding: 10px;
   display: flex;
   flex-direction: column;
