@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Redirect, Switch } from 'react-router-dom';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../actions/auth';
+import { startLoadingNotes } from '../actions/notes';
 import { firebase } from '../firebase/firebase-config';
 
 import { ClipLoader } from 'react-spinners';
@@ -12,8 +13,6 @@ import { PublicRoute } from './PublicRoute';
 import { PrivateRoute } from './PrivateRoute';
 import { AuthRouter } from './AuthRouter';
 import { JournalScreen } from '../components/journal/JournalScreen';
-import { loadNotes } from '../helpers/loadNotes';
-import { setNotes } from '../actions/notes';
 
 export const AppRouter = () => {
   const { logged: isLogged } = useSelector((state) => state.auth);
@@ -25,8 +24,7 @@ export const AppRouter = () => {
     firebase.auth().onAuthStateChanged(async (user) => {
       if (user?.uid) {
         dispatch(login(user.uid, user.displayName));
-        const notes = await loadNotes(user.uid);
-        dispatch(setNotes(notes));
+        dispatch(startLoadingNotes(user.uid));
       }
 
       setCheck(true);

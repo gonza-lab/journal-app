@@ -108,13 +108,15 @@
   height: 100px;
   background-color: white;
   font-size: 13px;
-
+  cursor: pointer;
   img {
     border-radius: 16px 0 0 16px;
     height: 100%;
     width: 80px;
     object-fit: cover;
   }
+
+
 }
 
 .journal__info {
